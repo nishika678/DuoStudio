@@ -9,14 +9,39 @@ html,body{
     height:100%;
     width:100%;
 }
+.cursor{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    position: fixed;
+    background-color: #EDBFFF;
+    z-index: 8;
+    transition: background-image ease 0.5s;
+    background-position: center;
+    background-size:cover ;
+    mix-blend-mode: difference;
+}
+#purple{
+   height:100vh;
+   width:100vh;
+   top:0;
+   position: fixed;
+   z-index:100;
+   background-color:#EDBFFF;
+   opacity: 0; 
+   display: none;
+   transition: opacity ease 1s ;
+}
 .main{
    background-color:#0F0D0D; 
+   cursor: none;
 }
 .page1{
     min-height:100vh;
     width:100%;
     position: relative;
     z-index: 9;
+    padding-top:12vw;
 }
 #nav{
   height:55px;
@@ -26,6 +51,9 @@ html,body{
   align-items:center;
   justify-content: space-between;
   padding:0 30px;
+  position:fixed;
+  mix-blend-mode: difference;
+  z-index:102;
 }
 #nav img{
     height:26px;
@@ -54,7 +82,6 @@ background-color: #fff;
     font-size:8vw;
     font-weight:300;
     font-family:PP mori;
-    margin-top:12vw;
     margin-left:6vw;
 
 }
@@ -169,7 +196,7 @@ position:relative;
     width:100%;
     position:relative;
     z-index:9;
-    padding:100px;
+    padding:140px 100px;
 }
 .elem{
     /* background-color: salmon; */
@@ -198,7 +225,8 @@ right:10%;
 }
     
 .elem h1{
-      font-size:7.3vw;
+      font-size:7.5vw;
+      font-weight:600;
       transition: all ease-out 0.5s;
   }
   .elem:hover h1{
@@ -214,9 +242,32 @@ right:10%;
 .page5{
     min-height:100vh ;
     width:100%;
-    background-color: red;
     position: relative;
     z-index: 9;
+    padding: 140px 100px;
+}
+.page5 h2{
+font-size:4vw;
+text-transform: uppercase;
+font-weight: 400;
+margin-bottom: 50px;
+}
+.box{
+    /* background-color: red; */
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    padding: 0 20px;
+    border-top: 2px solid #dadada;
+}
+.box:nth-last-child(1){
+    border-bottom: 2px solid #dadada;   
+}
+footer{
+height:90vh;
+width:100%;
+background-color: #EDBFFF;
 }
 
 
