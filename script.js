@@ -27,13 +27,26 @@ function init() {
 
 init()
 
+var crsr = document.querySelector(".cursor")
+var main = document.querySelector(".main")
+document.addEventListener("mousemove",function(dets){
+    crsr.style.left = dets.x + 20+"px"
+    crsr.style.top = dets.y + 20+"px"
+})
 
+gsap.from(".page1 h1,.page1 h2", {
+    y: 10,
+    rotate: 10,
+    opacity: 0,
+    delay: 0.3,
+    duration: 0.7
+})
 
 var tl=gsap.timeline({
     scrollTrigger:{
         trigger:".page1 h1",
         scroller:".main",
-        markers:true,
+        //markers:true,
         start:"top 27%",
         end:"top 0",
         scrub:3
@@ -48,11 +61,12 @@ tl.to(".page1 h2",{
 tl.to(".page1 video",{
     width:"90%"
 },"anim")
+
 var tl2=gsap.timeline({
     scrollTrigger:{
         trigger:".page1 h1",
         scroller:".main",
-        markers:true,
+        //markers:true,
         start:"top -115%",
         end:"top 130%",
         scrub:3
@@ -74,4 +88,34 @@ var tl3=gsap.timeline({
 })
 tl3.to(".main",{
     backgroundColor:"#0F0D0D"
+})
+var boxes=document.querySelectorAll(".box")
+boxes.forEach(function(elem){
+elem.addEventListener("mouseenter",function(){
+    var att=elem.getAttribute("data-image")
+    crsr.style.width = "450px"
+    crsr.style.height = "380px"
+    crsr.style.borderRadius = "0"
+    crsr.style.backgroundImage = `url(${att})`
+})
+elem.addEventListener("mouseleave",function(){
+    elem.style.backgroundColor="transparent"
+    crsr.style.width = "20px"
+    crsr.style.height = "20px"
+    crsr.style.borderRadius = "50%"
+    crsr.style.backgroundImage = `none`
+})
+})
+
+var h4=document.querySelectorAll("#nav h4")
+var prple=document.querySelector("#purple")
+h4.forEach(function(elem){
+    elem.addEventListener("mouseenter",function(){
+    prple.style.display="block"
+    prple.style.opacity="1"
+    })
+    elem.addEventListener("mouseleave",function(){
+        prple.style.display="none"
+        prple.style.opacity="0"
+        })    
 })
